@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: helloops
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: helloops
+  template:
+    metadata:
+      labels:
+        app: helloops
+    spec:
+      containers:
+      - name: helloops
+        image: 794927086871.dkr.ecr.eu-central-1.amazonaws.com/eksdeploy-app:latest
+        ports:
+        - containerPort: 8080
